@@ -1,3 +1,5 @@
+approach #1
+
 function curry(func){
     return function curried(...args){
         if(args.length>=func.length){
@@ -16,3 +18,25 @@ let curriedSum=curry(sum)
 
 console.log(curriedSum(1,2)); output //3
 console.log(curriedSum(1)(2));output //3
+--------------------------------------------------------
+
+approach #2
+
+function curry(f) {
+  return new Proxy(f, {
+    apply(target, thisArg, args) {
+      return (args.length >= target.length) ?
+        Reflect.apply(...arguments) :
+        curry(target).bind(thisArg, ...args);
+    }
+  });
+}
+function sum(a,b){
+    return a+b
+}
+
+let curriedresult=curry(sum)
+console.log(curriedresult(2,3));//5
+console.log(curriedresult(2)(3));//5
+
+
