@@ -1,0 +1,119 @@
+import React, { useState } from 'react'
+import {
+  StyleSheet,
+  View,
+  FlatList,
+  TextInput,
+  Text,
+  TouchableOpacity,
+} from "react-native";
+
+const App = () => {
+ const [name, setName] = useState("");
+ const [code, setCode] = useState("");
+ const [nameList, setNameList] = useState([]);
+
+ const itemRender = ({ item }) => {
+   return (
+     <View
+       style={{
+         flex: 1,
+         flexDirection: "row",
+         justifyContent: "space-between",
+         alignItems: "center",
+         padding: 10,
+       }}
+     >
+       <View style={{ padding: 10 }}>
+         <Text style={{ fontSize: 16 }}>{item.name}</Text>
+         <Text style={{ fontSize: 14 }}>{item.code}</Text>
+       </View>
+       <TouchableOpacity onPress={() => deleteUser(item.code)}>
+         <Text style={{ fontSize: 16, color: "red" }}>Delete</Text>
+       </TouchableOpacity>
+     </View>
+   );
+ };
+ const deleteUser = (code) => {
+   setNameList((prevList) => prevList.filter((item) => item.code !== code));
+ };
+ const submitData = () => {
+   if (name && code) {
+     const isDuplicate = nameList.some((item) => item.code === code);
+     if (isDuplicate) {
+       alert("Employee code already exists!");
+       return;
+     }
+     setNameList((prevList) => [...prevList, { name, code }]);
+     setCode("");
+     setName("");
+   }
+ };
+ return (
+   <View style={styles.container}>
+     <TextInput
+       value={name}
+       placeholder={"Enter employee name"}
+       style={{
+         padding: 10,
+         borderRadius: 10,
+         borderWidth: 1,
+         color: "black",
+       }}
+       onChangeText={(uname) => {
+         setName(uname);
+       }}
+       maxLength={20}
+       secureTextEntry={false}
+     />
+     <TextInput
+       value={code}
+       placeholder={"Enter employee Code"}
+       style={{
+         padding: 10,
+         borderRadius: 10,
+         borderWidth: 1,
+         color: "black",
+         marginTop: 10,
+       }}
+       onChangeText={(code) => {
+         setCode(code);
+       }}
+       maxLength={20}
+       secureTextEntry={false}
+     />
+     <TouchableOpacity onPress={submitData}>
+       <Text
+         style={{
+           alignSelf: "center",
+           padding: 10,
+           justfyContent: "center",
+           alignContent: "center",
+           backgroundColor: "red",
+           borderRadius: 10,
+           color: "white",
+           margin: 10,
+         }}
+       >
+         Submit
+       </Text>
+     </TouchableOpacity>
+     <FlatList
+       data={nameList}
+       keyExtractor={(item) => {
+         item.code;
+       }}
+       renderItem={itemRender}
+     />
+   </View>
+ );
+};
+
+const styles = StyleSheet.create({
+ container: {
+   padding: 20,
+ },
+});
+
+export default App;
+
