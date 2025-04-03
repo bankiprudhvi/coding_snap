@@ -1,0 +1,22 @@
+approach #1
+---------------------------------------
+const arr = [1, 2, 1, 2, 3, 4, 4, 5];
+
+const frequency = arr.reduce((acc, num) => {
+  acc[num] = (acc[num] || 0) + 1;
+  return acc;
+}, {});
+
+console.log(frequency);
+
+approach #2
+---------------------------------------
+const arr = [1, 2, 1, 2, 3, 4, 4, 5];
+
+const frequency = {};
+
+arr.forEach(num => {
+  frequency[num] = (frequency[num] || 0) + 1;
+});
+
+console.log(frequency);
