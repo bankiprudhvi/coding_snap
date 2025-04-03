@@ -1,0 +1,42 @@
+remove duplicates from string 
+------------------------------------------
+function removeDuplicateChars(str) {
+  return [...new Set(str)].join('');
+}
+
+const str = "hello world";
+console.log(removeDuplicateChars(str)); // Output: "helo wrd"
+console.log(removeDuplicateChars(str).length); // Output: 8
+
+
+array operations:
+------------------------------------------
+Method 1: Using Set (Fastest)
+
+function removeDuplicates(arr) {
+  return [...new Set(arr)];
+}
+
+const numbers = [1, 2, 3, 4, 2, 3, 5, 1];
+console.log(removeDuplicates(numbers)); // Output: [1, 2, 3, 4, 5]
+console.log(removeDuplicates(numbers).length); // Output: 5
+
+
+Method 2: Using filter() (Preserves Order)
+
+function removeDuplicatesFilter(arr) {
+  return arr.filter((value, index) => arr.indexOf(value) === index);
+}
+
+console.log(removeDuplicatesFilter([1, 2, 3, 4, 2, 3, 5, 1])); // Output: [1, 2, 3, 4, 5]
+console.log(removeDuplicatesFilter([1, 2, 3, 4, 2, 3, 5, 1]).length); // Output: 5
+
+Method 3: Using an Object (Best for Large Arrays)
+                           
+function removeDuplicatesObj(arr) {
+  let seen = {};
+  return arr.filter(item => seen.hasOwnProperty(item) ? false : (seen[item] = true));
+}
+
+console.log(removeDuplicatesObj([1, 2, 3, 4, 2, 3, 5, 1])); // Output: [1, 2, 3, 4, 5]
+console.log(removeDuplicatesObj([1, 2, 3, 4, 2, 3, 5, 1]).length); // Output: 5
