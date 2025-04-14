@@ -1,0 +1,18 @@
+function debounce(func,delay){
+    let time;
+    return function(...args){
+        clearTimeout(time)
+        time=setTimeout(()=>{
+            func(...args)
+        },delay)
+        
+    }
+}
+const debouncedCall = debounce(function call() {
+    console.log("hiii Prudhvi!!");
+}, 2000);
+debouncedCall();
+debouncedCall();
+debouncedCall();
+
+ //Only one "hiii Prudhvi!!" will be logged after 2 seconds
