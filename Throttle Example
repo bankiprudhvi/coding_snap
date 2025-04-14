@@ -1,0 +1,19 @@
+function throtell(func, delay) {
+  let lastCall = 0;
+
+  return function (...args) {
+    const now = new Date().getTime();
+    if (now - lastCall >= delay) {
+      lastCall = now;
+      func(...args);
+    }
+  };
+}
+
+const throttledCall = throtell(function call() {
+  console.log("hiii Prudhvi!!");
+}, 500);
+
+throttledCall();
+throttledCall();
+throttledCall();
