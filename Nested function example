@@ -1,0 +1,11 @@
+A function can also contain another function. This is called a nested function.
+
+function outerCall(name){
+    function displayUserName(){
+        console.log(`Hi my name is ${name}`)
+    }
+    displayUserName()
+}
+outerCall("Prudhvi Kumar")
+
+o/p : Hi my name is Prudhvi Kumar
