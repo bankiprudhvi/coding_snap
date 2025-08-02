@@ -22,8 +22,12 @@ export default function App() {
   };
 
   const submit = () => {
-    if (!name) {
+    if (!name?.trim()) {
       alert('empty user name');
+      return;
+    }
+    if(userList.includes(name.toLowerCase())){
+      alert('user name existed');
       return;
     }
     setUserList((prevList) => [...prevList, name]);
