@@ -1,0 +1,20 @@
+
+# for loop approach
+----------------------------------------
+function reverseStr(str){
+    let temp=""
+    for(let i=str.length-1;i>=0;i--){
+        temp = temp+str[i]
+    }
+    return temp
+}
+
+console.log(reverseStr('mama'))  // out put amam
+
+# reduce approach
+----------------------------------------
+function reverseStrreducer(str){
+    return str.split('').reduce((rev,char)=>char+rev,"")
+}
+console.log(reverseStrreducer('mama'))
+// out put amam
