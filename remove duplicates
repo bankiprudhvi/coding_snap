@@ -4,6 +4,12 @@ function removeDuplicateChars(str) {
   return [...new Set(str)].join('');
 }
 
+function removeduplicates(str){
+    const data=str.split('')
+    return data.filter((item,index)=> data.indexOf(item)===index).join('')
+}
+console.log(removeduplicates('Raj kumar raj'))
+
 const str = "hello world";
 console.log(removeDuplicateChars(str)); // Output: "helo wrd"
 console.log(removeDuplicateChars(str).length); // Output: 8
