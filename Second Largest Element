@@ -1,0 +1,18 @@
+Second Largest Element
+----------------------------------------
+function secondLargestSort(arr) {
+  let unique = [...new Set(arr)];
+  unique.sort((a, b) => b - a);
+  return unique[1] ?? null;
+}
+
+console.log(secondLargest([10, 20, 4, 45, 99])); // 45
+--------------------------------------------------
+third Largest Element
+function thirdLargestSort(arr) {
+  let unique = [...new Set(arr)];
+  unique.sort((a, b) => b - a);
+  return unique[2] ?? null;
+}
+
+console.log(secondLargest([10, 20, 4, 45, 99])); // 20
