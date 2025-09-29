@@ -1,0 +1,12 @@
+function moveZeroesExtra(arr) {
+  return [...arr.filter(x => x !== 0), ...arr.filter(x => x === 0)];
+}
+
+------------------------------------------------------------
+
+function moveZeroes(arr) {
+  let index = 0;
+  for (let num of arr) if (num !== 0) arr[index++] = num;
+  while (index < arr.length) arr[index++] = 0;
+  return arr;
+}
