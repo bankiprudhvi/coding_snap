@@ -16,3 +16,23 @@ function thirdLargestSort(arr) {
 }
 
 console.log(secondLargest([10, 20, 4, 45, 99])); // 20
+
+---------------------------------------------------
+
+function secLargest() {
+  let first = -Infinity;
+  let second = -Infinity;
+
+  arr2.forEach(num => {
+    if (num > first) {
+      // shift current first to second
+      second = first;
+      first = num;
+    } else if (num > second && num < first) {
+      // update second only if between first and second
+      second = num;
+    }
+  });
+
+  return second === -Infinity ? null : second;
+}
