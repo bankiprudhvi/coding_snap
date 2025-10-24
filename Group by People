@@ -1,0 +1,15 @@
+const group = (people, key) => {
+  return people.reduce((acc, user) => {
+    (acc[user[key]] = acc[user[key]] || []).push(user);
+    return acc;
+  }, {});
+};
+
+const people = [
+  { name: "Alice", age: 25 },
+  { name: "Bob", age: 30 },
+  { name: "Charlie", age: 25 },
+  { name: "Diana", age: 30 }
+];
+
+console.log("Grouped by age:", group(people, 'age'));
