@@ -17,6 +17,23 @@ console.log(removeDuplicateChars(str).length); // Output: 8
 
 array operations:
 ------------------------------------------
+#for each 
+
+const arr = [1, 2, 3, 2, 4, 5, 1, 6, 3];
+
+const seen = new Set();
+const duplicates = new Set();
+
+arr.forEach(item => {
+  if (seen.has(item)) {
+    duplicates.add(item);
+  } else {
+    seen.add(item);
+  }
+});
+
+console.log([...duplicates]);
+--------------------------------------------------
 Method 1: Using Set (Fastest)
 
 function removeDuplicates(arr) {
