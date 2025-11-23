@@ -1,0 +1,18 @@
+const arr = [1, 3, 5];
+const arr2 = [2, 4, 6];
+
+const merged = [...arr, ...arr2];
+
+// Manual sorting (Bubble Sort using for loops)
+for (let i = 0; i < merged.length; i++) {
+  for (let j = i + 1; j < merged.length; j++) {
+    if (merged[i] > merged[j]) {
+      // swap
+      let temp = merged[i];
+      merged[i] = merged[j];
+      merged[j] = temp;
+    }
+  }
+}
+
+console.log(merged); // [1, 2, 3, 4, 5, 6]
