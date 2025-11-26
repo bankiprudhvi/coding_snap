@@ -1,0 +1,13 @@
+function palindrome(word){
+  
+  const rev=word.toLowerCase()
+  const myrev=rev.split('').reduce((rev,char)=>char+rev,"")
+  if(myrev==rev){
+    console.log(`Given word palindrome :${myrev==rev}`)
+  }
+  else{
+    console.log(`Given word not palindrome :${myrev==rev}`)
+  }
+ 
+}
+palindrome("Madam")
