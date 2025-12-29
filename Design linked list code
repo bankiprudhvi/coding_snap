@@ -42,7 +42,7 @@ MyLinkedList.prototype.get = function (index) {
  */
 MyLinkedList.prototype.addAtHead = function (val) {
     let node = new Node(val)
-    node.next = this.next
+    node.next = this.head
     this.head = node
     this.size++
 };
