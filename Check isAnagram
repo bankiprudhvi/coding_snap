@@ -1,0 +1,20 @@
+function isAnagram(str1, str2) {
+    const format=str=>str.toLowerCase().replace(/[^a-z]/g,'')
+    let s1 = format(str1)
+    let s2 = format(str2)
+    if(s1.length !== s2.length){
+        return false
+    }
+    let feq = {}
+    for(let ch of s1){
+        feq[ch]=(feq[ch]||0) +1
+    }
+    for (let ch of s2) {
+    if (!feq[ch]){
+        return false
+    };
+    feq[ch]--;
+    }
+    return true
+}
+console.log(isAnagram("Dormitory", "Dirty room"));
